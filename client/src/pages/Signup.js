@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import API from "../utils/API";
 import { useAuthContext } from "../utils/AuthContext";
 
 function Signup() {
@@ -14,15 +15,9 @@ function Signup() {
 
     if (firstName && lastName && email && password) {
       try {
-        let response = await fetch("/api/auth", {
-          method: "POST",
-          body: JSON.stringify({ firstName, lastName, email, password }),
-          headers: { "Content-Type": "application/json" },
-        });
-
-        response = await response.json();
-
-        login(response.data);
+        const res = await API.signupUser({firstName, lastName, email, password});
+        login(res.data)
+        window.location.replace("/")
       } catch (err) {
         alert("Unable to create account. Please try again."); //mongo error report and request err report
       }
