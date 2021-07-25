@@ -33,7 +33,7 @@ function Landing() {
   return (
     <section className="pageContainer">
       <div className="field is-grouped is-grouped-centered" id="Landteg">
-        <h1>Bleecker Street Apartments</h1>
+        <h1>Propert Management System</h1>
       </div>
       <div id="userInput">
         <div className="field is-grouped is-grouped-centered">
